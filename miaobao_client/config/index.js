@@ -18,6 +18,20 @@ module.exports = {
           '^/handwriting': '/handwriting'
         }
       },
+      '/search': {
+        target: 'https://aip.baidubce.com/rest/2.0/face/v3',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/search': '/search'
+        }
+      },
+      '/token': {
+        target: 'https://aip.baidubce.com/oauth/2.0',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/token': '/token'
+        }
+      },
     },
 
     // Various Dev Server settings
