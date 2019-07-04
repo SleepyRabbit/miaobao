@@ -18,8 +18,7 @@ const request = {
         let result = response.data || '';
         return result;
       }catch(e) {
-        let _key = e && e.status;
-        return ERROBJ[_key] || e;
+        throw e
       }
     } else { // get请求
         try {
@@ -45,8 +44,7 @@ const request = {
             });
             return response.data;
         } catch (e) {
-            let _key = e && e.status;
-            return ERROBJ[_key] || e;
+          throw e
         }
     },  
 };

@@ -10,6 +10,11 @@
 <script>
 import request from "@/utils/request";
 
+let option = {
+  client_id: "9yo34fa44h5pXhhsfbuzllBe",
+  client_secret: "tZTEmxMTbBHZkyHKNBGERIoBfw9V20Ig",
+}
+
 export default {
   name: 'home',
   data () {
@@ -26,7 +31,8 @@ export default {
   },
   methods: {
       async getToken() {
-        let url = "/token" + "?grant_type=client_credentials&client_id=coOCouzgHxyAHD2uRQQxqs6u&client_secret=rcxGlrGGtTxyQgrggKCANlSMCSV5kf0x"
+        let url_param = `?grant_type=client_credentials&client_id=${option.client_id}&client_secret=${option.client_secret}`
+        let url = "/token" + url_param;
         let opt = {
           contentType: "application/json"
         }
@@ -74,14 +80,17 @@ export default {
       },
       async uploadFile() {
         // console.log("this.imageData: ", this.imageData)
-        let url = `/handwriting?access_token=${this.token}`;
+        let url = `/detect?access_token=${this.token}`;
+        let opt = {
+          contentType: "application/json;charset=UTF-8"
+        }
         let data = {
           image_type: 'BASE64',
           image: this.imageData,
           group_id_list : "gropu001",
           user_id: "001",
         }
-        let res = await request.fetchData(url, data);
+        let res = await request.fetchData(url, data, opt);
         if(res && res.error_code) {
           console.log("err code:", res.error_code, "\nerr msg:", res.error_msg)
         }

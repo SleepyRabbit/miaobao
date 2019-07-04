@@ -53,6 +53,13 @@ module.exports = {
           '^/token': '/token'
         }
       },
+      '/img_censor': {
+        target: 'https://aip.baidubce.com/api/v1/solution/direct',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/img_censor': '/img_censor'
+        }
+      },
     },
 
     // Various Dev Server settings
