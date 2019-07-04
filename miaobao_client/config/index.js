@@ -25,6 +25,27 @@ module.exports = {
           '^/search': '/search'
         }
       },
+      '/detect': {
+        target: 'https://aip.baidubce.com/rest/2.0/face/v3',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/detect': '/detect'
+        }
+      },
+      '/match': {
+        target: 'https://aip.baidubce.com/rest/2.0/face/v3',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/match': '/match'
+        }
+      },
+      '/plant': {
+        target: 'https://aip.baidubce.com/rest/2.0/image-classify/v1',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/plant': '/plant'
+        }
+      },
       '/token': {
         target: 'https://aip.baidubce.com/oauth/2.0',
         changeOrigin: true,
